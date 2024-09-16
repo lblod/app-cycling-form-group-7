@@ -62,31 +62,13 @@
 )
 
 (define-graph public ("http://mu.semte.ch/graphs/public")
-  ("ext:FileAddress" -> _)
-  ("nfo:FileDataObject" -> _)
   ("prov:Location" -> _)
   ("besluit:Bestuurseenheid" -> _)
   ("ext:BestuurseenheidClassificatieCode" -> _)
-  ("ext:BestuursorgaanClassificatieCode" -> _)
-  ("lmb:Bestuursperiode" -> _)
-  ("ext:Fractietype" -> _)
-  ("ext:BestuursfunctieCode" -> _)
-  ("ext:MandatarisStatusCode" -> _)
-  ("ext:BeleidsdomeinCode" -> _)
-  ("ext:GeslachtCode" -> _)
-  ("euvoc:Country" -> _)
-  ("eli:LegalResource" -> _)
-  ("mandaat:RechtsgrondAanstelling" -> _)
-  ("mandaat:RechtsgrondBeeindiging" -> _)
-  ("mandaat:RechtstreekseVerkiezing" -> _)
-  ("mandaat:Verkiezingsresultaat" -> _)
-  ("ext:VerkiezingsresultaatGevolgCode" -> _)
-  ("org:Role" -> _)
   ("skos:ConceptScheme" -> _)
   ("skos:Concept" -> _)
   ("m8g:PeriodOfTime" -> _)
-  ("foaf:Document" -> _)
-  ("lmb:MandatarisPublicationStatusCode" -> _))
+  ("foaf:Document" -> _))
 
 (define-graph sessions ("http://mu.semte.ch/graphs/sessions")
   ("musession:Session" -> _))
@@ -99,56 +81,13 @@
   ("foaf:OnlineAccount" -> _)
   ("adms:Identifier" -> _))
 
-(define-graph organization-mandatendatabank ("http://mu.semte.ch/graphs/organizations/")
-  ("contacthub:AgentInPositie" -> _)
-  ("mandaat:Fractie" -> _)
-  ("persoon:Geboorte" -> _)
-  ("org:Membership" -> _)
-  ("besluit:Besluit" -> _)
-  ("besluit:Artikel" -> _)
-  ("eli:LegalResource" -> _)
-  ("besluit:Bestuursorgaan" -> _)
-  ("mandaat:Mandataris" -> _)
-  ("mandaat:Mandaat" -> _)
-  ("ext:BeleidsdomeinCode" -> _)
-  ("org:Post" -> _)
-  ("person:Person" -> _)
-  ("adms:Identifier" -> _)
-  ("dct:PeriodOfTime" -> _)
-  ("ext:Form" -> _)
-  ("ext:Extension" -> _)
-  ("lmb:Installatievergadering" -> _)
-  ("lmb:InstallatievergaderingStatus" -> _)
-  ("mandaat:RechtstreekseVerkiezing" -> _)
-  ("mandaat:Kandidatenlijst" -> _)
-  ("ext:KandidatenlijstLijsttype" -> _)
-  ("mandaat:Verkiezingsresultaat" -> _)
-  ("ext:SystemNotification" -> _)
-  ("astreams:Tombstone" -> _)
-  ("ext:BestuurseenheidContact" -> _)
-  ("ext:VerkiezingsresultaatGevolgCode" -> _)
-  ("schema:ContactPoint" -> _)
-  ("locn:Address" -> _))
+(define-graph organization-mandatendatabank ("http://mu.semte.ch/graphs/organizations/"))
 
 (supply-allowed-group "public")
 
 (grant (read)
        :to-graph public
        :for-allowed-group "public")
-
-(supply-allowed-group "vendor"
-  :parameters ("session_group" "session_role")
-  :query "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
-          PREFIX muAccount: <http://mu.semte.ch/vocabularies/account/>
-          PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
-          SELECT DISTINCT ?session_group ?session_role WHERE {
-            <SESSION_ID> muAccount:canActOnBehalfOf/mu:uuid ?session_group;
-                         muAccount:account/ext:sessionRole ?session_role.
-          }")
-
-(grant (read)
-       :to-graph organization-mandatendatabank
-       :for-allowed-group "vendor")
 
 (supply-allowed-group "authenticated"
   :parameters ()
