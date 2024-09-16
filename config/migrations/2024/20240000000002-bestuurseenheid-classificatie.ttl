@@ -1,0 +1,164 @@
+@prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos:	<http://www.w3.org/2004/02/skos/core#> .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/293e5f58-9544-496e-88e0-734a137f6ebc>	rdf:type	skos:Concept .
+@prefix ns2:	<http://mu.semte.ch/vocabularies/ext/> .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/293e5f58-9544-496e-88e0-734a137f6ebc>	rdf:type	ns2:BestuurseenheidClassificatieCode ;
+	skos:prefLabel	"Watering" .
+@prefix ns3:	<http://data.vlaanderen.be/id/conceptscheme/> .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/293e5f58-9544-496e-88e0-734a137f6ebc>	skos:inScheme	ns3:BestuurseenheidClassificatieCode ,
+		<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode .
+@prefix ns4:	<http://mu.semte.ch/vocabularies/core/> .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/293e5f58-9544-496e-88e0-734a137f6ebc>	ns4:uuid	"293e5f58-9544-496e-88e0-734a137f6ebc" .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/36a82ba0-7ff1-4697-a9dd-2e94df73b721>	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode .
+@prefix ns5:	<http://schema.org/> .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/36a82ba0-7ff1-4697-a9dd-2e94df73b721>	ns5:publication	<http://lblod.data.gift/concepts/83f7b480-fcaf-4795-b603-7f3bce489325> ;
+	skos:prefLabel	"Autonoom gemeentebedrijf" ;
+	skos:inScheme	ns3:BestuurseenheidClassificatieCode ,
+		<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"36a82ba0-7ff1-4697-a9dd-2e94df73b721" .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000000>	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	ns5:publication	<http://lblod.data.gift/concepts/83f7b480-fcaf-4795-b603-7f3bce489325> ,
+		<http://lblod.data.gift/concepts/403b71bd-5ab9-4c92-8990-4bb19d5469d1> ;
+	skos:prefLabel	"Provincie" ;
+	skos:inScheme	ns3:BestuurseenheidClassificatieCode ,
+		<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"5ab0e9b8a3b2ca7c5e000000" .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	ns5:publication	<http://lblod.data.gift/concepts/83f7b480-fcaf-4795-b603-7f3bce489325> ,
+		<http://lblod.data.gift/concepts/403b71bd-5ab9-4c92-8990-4bb19d5469d1> ;
+	skos:prefLabel	"Gemeente" ;
+	skos:inScheme	<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ,
+		ns3:BestuurseenheidClassificatieCode ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"5ab0e9b8a3b2ca7c5e000001" .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000002>	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	ns5:publication	<http://lblod.data.gift/concepts/83f7b480-fcaf-4795-b603-7f3bce489325> ;
+	skos:prefLabel	"OCMW" ;
+	skos:inScheme	ns3:BestuurseenheidClassificatieCode ,
+		<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"5ab0e9b8a3b2ca7c5e000002" .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000003>	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	ns5:publication	<http://lblod.data.gift/concepts/83f7b480-fcaf-4795-b603-7f3bce489325> ;
+	skos:prefLabel	"District" ;
+	skos:inScheme	ns3:BestuurseenheidClassificatieCode ,
+		<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"5ab0e9b8a3b2ca7c5e000003" .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/80310756-ce0a-4a1b-9b8e-7c01b6cc7a2d>	rdf:type	ns2:BestuurseenheidClassificatieCode ,
+		skos:Concept ;
+	ns5:publication	<http://lblod.data.gift/concepts/83f7b480-fcaf-4795-b603-7f3bce489325> ;
+	skos:prefLabel	"Autonoom provinciebedrijf" ;
+	skos:inScheme	ns3:BestuurseenheidClassificatieCode ,
+		<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"80310756-ce0a-4a1b-9b8e-7c01b6cc7a2d" .
+@prefix ns6:	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/> .
+ns6:a3922c6d-425b-474f-9a02-ffb71a436bfc	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	ns5:publication	<http://lblod.data.gift/concepts/83f7b480-fcaf-4795-b603-7f3bce489325> ;
+	skos:prefLabel	"Politiezone" ;
+	skos:inScheme	ns3:BestuurseenheidClassificatieCode ,
+		<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"a3922c6d-425b-474f-9a02-ffb71a436bfc" .
+ns6:b156b67f-c5f4-4584-9b30-4c090be02fdc	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	skos:prefLabel	"Projectvereniging" ;
+	skos:inScheme	<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ,
+		ns3:BestuurseenheidClassificatieCode ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"b156b67f-c5f4-4584-9b30-4c090be02fdc" .
+ns6:cc4e2d67-603b-4784-9b61-e50bac1ec089	rdf:type	ns2:BestuurseenheidClassificatieCode ,
+		skos:Concept ;
+	ns5:publication	<http://lblod.data.gift/concepts/83f7b480-fcaf-4795-b603-7f3bce489325> ;
+	skos:prefLabel	"OCMW vereniging" ;
+	skos:inScheme	<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ,
+		ns3:BestuurseenheidClassificatieCode ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"cc4e2d67-603b-4784-9b61-e50bac1ec089" .
+ns6:cd93f147-3ece-4308-acab-5c5ada3ec63d	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	ns5:publication	<http://lblod.data.gift/concepts/83f7b480-fcaf-4795-b603-7f3bce489325> ;
+	skos:prefLabel	"Opdrachthoudende vereniging" ;
+	skos:inScheme	<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ,
+		ns3:BestuurseenheidClassificatieCode ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"cd93f147-3ece-4308-acab-5c5ada3ec63d" .
+ns6:d01bb1f6-2439-4e33-9c25-1fc295de2e71	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	ns5:publication	<http://lblod.data.gift/concepts/83f7b480-fcaf-4795-b603-7f3bce489325> ;
+	skos:prefLabel	"Dienstverlenende vereniging" ;
+	skos:inScheme	<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ,
+		ns3:BestuurseenheidClassificatieCode ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"d01bb1f6-2439-4e33-9c25-1fc295de2e71" .
+ns6:d312c541-a263-4004-bca2-63eb991458c3	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	skos:prefLabel	"Polders" ;
+	skos:inScheme	<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ,
+		ns3:BestuurseenheidClassificatieCode ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"d312c541-a263-4004-bca2-63eb991458c3" .
+ns6:d90c511e-f827-488c-84ba-432c8f69561c	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	skos:prefLabel	"Vlaamse gemeenschapscommissie" ;
+	skos:inScheme	ns3:BestuurseenheidClassificatieCode ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"d90c511e-f827-488c-84ba-432c8f69561c" .
+ns6:e8294b73-87c9-4fa2-9441-1937350763c9	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	skos:prefLabel	"Welzijnsvereniging" ;
+	skos:inScheme	<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ,
+		ns3:BestuurseenheidClassificatieCode ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"e8294b73-87c9-4fa2-9441-1937350763c9" .
+ns6:ea446861-2c51-45fa-afd3-4e4a37b71562	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	ns5:publication	<http://lblod.data.gift/concepts/83f7b480-fcaf-4795-b603-7f3bce489325> ;
+	skos:prefLabel	"Hulpverleningszone" ;
+	skos:inScheme	<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ,
+		ns3:BestuurseenheidClassificatieCode ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"ea446861-2c51-45fa-afd3-4e4a37b71562" .
+@prefix ns7:	<http://lblod.data.gift/vocabularies/organisatie/> .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/36372fad-0358-499c-a4e3-f412d2eae213>	rdf:type	ns7:BestuurseenheidClassificatieCode ,
+		skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ;
+	ns5:publication	<http://lblod.data.gift/concepts/403b71bd-5ab9-4c92-8990-4bb19d5469d1> ;
+	skos:prefLabel	"Representatief orgaan" ;
+	skos:inScheme	ns3:BestuurseenheidClassificatieCode ,
+		<http://lblod.data.gift/concept-schemes/10caf4a4-1ff5-4c05-917e-56489910d68b> ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"36372fad-0358-499c-a4e3-f412d2eae213" .
+<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/66ec74fd-8cfc-4e16-99c6-350b35012e86>	rdf:type	skos:Concept ,
+		ns2:BestuurseenheidClassificatieCode ,
+		ns7:BestuurseenheidClassificatieCode ;
+	ns5:publication	<http://lblod.data.gift/concepts/83f7b480-fcaf-4795-b603-7f3bce489325> ,
+		<http://lblod.data.gift/concepts/403b71bd-5ab9-4c92-8990-4bb19d5469d1> ;
+	skos:prefLabel	"Bestuur van de eredienst" ;
+	skos:inScheme	ns3:BestuurseenheidClassificatieCode ,
+		<http://lblod.data.gift/concept-schemes/19c53ee2-bac1-4ce8-8015-6ff589ccfaca> ,
+		<http://lblod.data.gift/concept-schemes/10caf4a4-1ff5-4c05-917e-56489910d68b> ,
+		<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"66ec74fd-8cfc-4e16-99c6-350b35012e86" .
+ns6:f9cac08a-13c1-49da-9bcb-f650b0604054	rdf:type	ns2:BestuurseenheidClassificatieCode ,
+		skos:Concept ,
+		ns7:BestuurseenheidClassificatieCode ;
+	ns5:publication	<http://lblod.data.gift/concepts/403b71bd-5ab9-4c92-8990-4bb19d5469d1> ;
+	skos:prefLabel	"Centraal bestuur van de eredienst" ;
+	skos:inScheme	ns3:BestuurseenheidClassificatieCode ,
+		<http://lblod.data.gift/concept-schemes/10caf4a4-1ff5-4c05-917e-56489910d68b> ,
+		<http://lblod.data.gift/concept-schemes/06bad311-e964-48a4-9b6b-f765819e76e0> ,
+		<http://lblod.data.gift/concept-schemes/19c53ee2-bac1-4ce8-8015-6ff589ccfaca> ;
+	skos:topConceptOf	ns3:BestuurseenheidClassificatieCode ;
+	ns4:uuid	"f9cac08a-13c1-49da-9bcb-f650b0604054" .
