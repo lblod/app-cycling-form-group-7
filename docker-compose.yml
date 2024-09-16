@@ -104,14 +104,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  file:
-    image: semtech/mu-file-service:3.4.0
-    volumes:
-      - ./data/files:/share
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   frontend:
     image: lblod/frontend-lokaal-mandatenbeheer:0.1.0
     labels:
@@ -120,113 +112,11 @@ services:
     logging: *default-logging
     environment:
       EMBER_AUTHENTICATION_ENABLED: "true"
-  filehost:
-    image: nginx:1.15.2
-    volumes:
-      - ./config/filehost/nginx.conf:/etc/nginx/nginx.conf
-      - ./config/filehost/conf.d:/etc/nginx/conf.d
-      - ./data/files:/data:ro
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   sink:
     image: nginx:1.15.2
     volumes:
       - ./config/sink/sink.conf:/etc/nginx/conf.d/default.conf
     labels:
       - "logging=true"
-    restart: always
-    logging: *default-logging
-  form-content:
-    image: lblod/form-content-service:0.0.7
-    restart: always
-    labels:
-      - "logging=true"
-    volumes:
-      - ./config/form-content:/config
-  mandataris:
-    image: lblod/mandataris-service:0.0.8
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-    volumes:
-      - ./data/files/burgemeester-benoemingen:/uploads
-  adressenregister:
-    image: lblod/adressenregister-fuzzy-search-service:0.6.3
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  modified:
-    image: lblod/track-modified-service:0.0.1
-    labels:
-      - "logging=true"
-    volumes:
-      - ./config/modified:/config
-    restart: always
-    logging: *default-logging
-
-  authorization-wrapper:
-    image: lblod/ldes-authorization-wrapper:0.0.2
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-    volumes:
-      - ./config/authorization-wrapper:/config
-  ##############################################################################
-  # LDES
-  ##############################################################################
-  ldes-delta-pusher:
-    image: redpencil/ldes-delta-pusher:0.4.1
-    environment:
-      LDES_ENDPOINT: "http://ldes-backend"
-      LDES_BASE: "https://dev.mandatenbeheer.lblod.info/streams/ldes"
-      MAX_PAGE_SIZE_BYTES: 10000000
-      INITIAL_STATE_LIMIT: 10000
-      # for catching up after restart
-      #LDES_STATUS_GRAPH: "http://mu.semte.ch/graphs/ldes-status"
-      DIRECT_DB_ENDPOINT: "http://virtuoso:8890/sparql"
-      WRITE_INITIAL_STATE: "false"
-      # for writing initial state
-      #WRITE_INITIAL_STATE: "true"
-
-    volumes:
-      - ./config/ldes-delta-pusher/:/config/
-    restart: always
-    labels:
-      - "logging=true"
-    links:
-      - virtuoso:database
-  ldes-backend:
-    image: redpencil/fragmentation-producer:0.4.1
-    restart: always
-    logging: *default-logging
-    labels:
-      - "logging=true"
-    environment:
-      BASE_URL: "https://dev.mandatenbeheer.lblod.info/streams/ldes/"
-      FOLDER_DEPTH: 1
-      PAGE_RESOURCES_COUNT: 20
-      LDES_STREAM_PREFIX: "https://dev.mandatenbeheer.lblod.info/streams/ldes/"
-      TIME_TREE_RELATION_PATH: "http://www.w3.org/ns/prov#generatedAtTime"
-      CACHE_SIZE: 10
-      DATA_FOLDER: "/data"
-      ENABLE_AUTH: "false"
-    volumes:
-      - "./data/ldes-feed/:/data/"
-  ##############################################################################
-  # VENDOR ENDPOINTS
-  ##############################################################################
-  vendor-login:
-    image: lblod/vendor-login-service:1.0.0
-    restart: always
-    logging: *default-logging
-  sparql-authorization-wrapper:
-    image: lblod/sparql-authorization-wrapper-service:1.0.0
-    volumes:
-      - ./config/sparql-authorization-wrapper:/config
     restart: always
     logging: *default-logging

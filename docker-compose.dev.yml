@@ -16,12 +16,6 @@ services:
     restart: "no"
     ports:
       - "80:80"
-    environment:
-      EMBER_FEATURE_PUBLIC_SERVICES_ENABLED: "true"
-      EMBER_FEATURE_EREDIENSTEN_MANDATENBEHEER_ENABLED: "true"
-      EMBER_FEATURE_WORSHIP_MINISTER_MANAGEMENT_ENABLED: "true"
-      EMBER_WORSHIP_DECISIONS_DATABASE_URL: "https://dev.databankerediensten.lokaalbestuur.lblod.info"
-      EMBER_WORSHIP_ORGANISATIONS_DATABASE_URL: "https://dev.organisaties.lokaalbestuur.lblod.info"
   identifier:
     ports:
       - "90:80"
@@ -53,39 +47,5 @@ services:
     restart: "no"
   login:
     restart: "no"
-  file:
-    restart: "no"
-  filehost:
-    restart: "no"
   sink:
-    restart: "no"
-  form-content:
-    restart: "no"
-    profiles:
-      - nodebug
-  mandataris:
-    restart: "no"
-    profiles:
-      - nodebug
-  modified:
-    restart: "no"
-    profiles:
-      - nodebug
-  adressenregister:
-    restart: "no"
-  ldes-delta-pusher:
-    restart: "no"
-    environment:
-      DEBUG: "true"
-  ldes-backend:
-    restart: "no"
-    environment:
-      BASE_URL: "http://localhost/streams/ldes/"
-    ports:
-      - "6666:80"
-  vendor-login:
-    restart: "no"
-  sparql-authorization-wrapper:
-    restart: "no"
-  authorization-wrapper:
     restart: "no"
