@@ -1,4 +1,4 @@
-# Lokaal mandatenbeheer
+# app-cycling-form-group-7
 
 ## What's included?
 
@@ -139,6 +139,19 @@ Whether a Mandaat/Mandataris is decretaal or not depends on whether it is linked
 ## Migrations
 
 The original application had a lot of migrations, these have been pruned to a test set to be used during development. For deployment a wider data set, fetched from the production of the loket application will have to be used. The queries that have been run to fetch the test data can be found in the queries folder with an additional readme.
+
+### LPDC
+
+To create a migration of the IPDC LDES, we start from the datadump provided by ABB.
+Then we use Comunica to run a SPARQL CONSTRUCT query over the JSON-LD files.
+These results are then streamed to one export file.
+
+```
+git clone https://github.com/lblod/Semantics-YourFingertips-hackathon-wave-2-IPDC-LEDS-dumps
+cd Semantics-YourFingertips-hackathon-wave-2-IPDC-LEDS-dumps
+npm install -g @comunica/query-sparql-file
+for FILENAME in *; do comunica-sparql-file $FILENAME "CONSTRUCT { ?s ?p ?o . } where { ?s ?p ?o . }" >> 20240000000004-add-lpdc.ttl; done
+```
 
 ## Form Content Service
 
