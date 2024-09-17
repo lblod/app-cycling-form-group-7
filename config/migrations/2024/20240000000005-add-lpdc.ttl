@@ -1,0 +1,47 @@
+<https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb> <http://purl.org/dc/terms/isVersionOf> <https://ipdc.tni-vlaanderen.be/id/instantie/8531caad-f6e7-4c2e-8b69-fa74c28988d6>;
+    a <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#InstancePublicServiceSnapshot>;
+    <http://www.w3.org/ns/prov#generatedAtTime> "2024-05-21T13:51:30.253461Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+    <http://purl.org/dc/terms/title> "Toelating wielerwedstrijd (Stad Gent)"@nl;
+    <http://purl.org/dc/terms/description> "<p data-indentation-level=\"0\">Volledig <strong>nieuw</strong> product beschrijving</p>"@nl-BE-x-formal, "<p data-indentation-level=\"0\">Volledig <strong>nieuw</strong> product beschrijving</p>"@nl, "<p data-indentation-level=\"0\">Volledig <strong>nieuw</strong> product beschrijving</p>"@nl-BE-x-generated-informal;
+    <http://purl.org/dc/terms/spatial> <http://data.europa.eu/nuts/code/BE24224134>;
+    <http://data.europa.eu/m8g/hasCompetentAuthority> <http://data.lblod.info/id/bestuurseenheden/d1a274073309ad03daf4f45139e48d74f26a20f5935376004033cd1d0d40ee76>;
+    <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#hasExecutingAuthority> <http://data.lblod.info/id/bestuurseenheden/d1a274073309ad03daf4f45139e48d74f26a20f5935376004033cd1d0d40ee76>;
+    <http://schema.org/dateCreated> "2024-03-20T12:42:53.837Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+    <http://schema.org/dateModified> "2024-03-20T14:55:06.862Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+    <http://schema.org/productID> "44614";
+    <http://vocab.belgif.be/ns/publicservice#hasRequirement> <https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_548>;
+    <http://purl.org/vocab/cpsv#follows> <https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_559>;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_563>;
+    <http://purl.org/vocab/cpsv#produces> <https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_577>;
+    <http://data.europa.eu/m8g/thematicArea> <https://productencatalogus.data.vlaanderen.be/id/concept/Thema/Wielerwedstrijd>;
+    <http://purl.org/dc/terms/type> <https://productencatalogus.data.vlaanderen.be/id/concept/Type/Toelating> ;
+    <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#isArchived> false.
+<https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_547> a <http://data.europa.eu/m8g/Evidence>;
+    <http://purl.org/dc/terms/description> "<p>Product 19 maart zonder codex</p>"@nl-BE-x-informal, "<p>Product 19 maart zonder codex</p>"@nl, "<p>Product 19 maart zonder codex</p>"@nl-BE-x-generated-formal;
+    <http://purl.org/dc/terms/title> "Bewijs"@nl-BE-x-generated-formal, "Bewijs"@nl, "Bewijs"@nl-BE-x-informal.
+<https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_548> a <http://data.europa.eu/m8g/Requirement>;
+    <http://purl.org/dc/terms/description> "Volledige naam van de aanvrager wordt verwacht."@nl;
+    <http://purl.org/dc/terms/title> "Voorwaarde: volledige naam"@nl-BE-x-informal, "Voorwaarden"@nl-BE-x-generated-formal, "Voorwaarden"@nl;
+    <http://data.europa.eu/m8g/hasSupportingEvidence> <https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_547>;
+    <http://www.w3.org/ns/shacl#order> 0.
+<https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_558> a <http://schema.org/WebSite>;
+    <http://purl.org/dc/terms/title> "Kunlabora"@nl, "Kunlabora"@nl-BE-x-informal, "Kunlabora"@nl-BE-x-generated-formal;
+    <http://schema.org/url> "https://www.kunlabora.be";
+    <http://www.w3.org/ns/shacl#order> 0.
+<https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_559> a <http://purl.org/vocab/cpsv#Rule>;
+    <http://purl.org/dc/terms/title> "Procedure"@nl-BE-x-informal, "Procedure"@nl, "Procedure"@nl-BE-x-generated-formal;
+    <http://purl.org/dc/terms/description> "<p>Product 19 maart zonder codex</p>"@nl-BE-x-informal, "<p>Product 19 maart zonder codex</p>"@nl, "<p>Product 19 maart zonder codex</p>"@nl-BE-x-generated-formal;
+    <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#hasWebsite> <https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_558>;
+    <http://www.w3.org/ns/shacl#order> 0.
+<https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_563> a <http://schema.org/WebSite>;
+    <http://purl.org/dc/terms/title> "Subsidies voor kunstenaars en professionele kunstenorganisaties"@nl-BE-x-generated-formal, "Subsidies voor kunstenaars en professionele kunstenorganisaties"@nl, "Subsidies voor kunstenaars en professionele kunstenorganisaties"@nl-BE-x-informal;
+    <http://schema.org/url> "https://www.vlaanderen.be/cjm/nl/cultuur/kunsten/subsidies";
+    <http://www.w3.org/ns/shacl#order> 0.
+<https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_570> a <http://data.europa.eu/m8g/Cost>;
+    <http://purl.org/dc/terms/description> "<p>Product 19 maart zonder codex</p>"@nl-BE-x-informal, "<p>Product 19 maart zonder codex</p>"@nl, "<p>Product 19 maart zonder codex</p>"@nl-BE-x-generated-formal;
+    <http://purl.org/dc/terms/title> "Product 19 maart zonder codex"@nl-BE-x-informal, "Product 19 maart zonder codex"@nl, "Product 19 maart zonder codex"@nl-BE-x-generated-formal;
+    <http://www.w3.org/ns/shacl#order> 0.
+<https://ipdc.tni-vlaanderen.be/id/instantiesnapshot/7ef18f32-8445-4446-ba87-1afd52d7febb/bc_0_df_58_577> a <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#FinancialAdvantage>;
+    <http://purl.org/dc/terms/description> "<p>Product 19 maart zonder codex</p>"@nl-BE-x-informal, "<p>Product 19 maart zonder codex</p>"@nl, "<p>Product 19 maart zonder codex</p>"@nl-BE-x-generated-formal;
+    <http://purl.org/dc/terms/title> "Product 19 maart zonder codex"@nl-BE-x-informal, "Product 19 maart zonder codex"@nl, "Product 19 maart zonder codex"@nl-BE-x-generated-formal;
+    <http://www.w3.org/ns/shacl#order> 0.

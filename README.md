@@ -146,13 +146,29 @@ To create a migration of the IPDC LDES, we start from the datadump provided by A
 Then we use Comunica to run a SPARQL CONSTRUCT query over the JSON-LD files.
 These results are then streamed to one export file.
 
+NOTE: blank nodes are shared across subjects, because each datadump is threated separately. For now, we will create migration manually using skolem URIs instead of blank nodes.
+
 ```
 git clone https://github.com/lblod/Semantics-YourFingertips-hackathon-wave-2-IPDC-LEDS-dumps
 cd Semantics-YourFingertips-hackathon-wave-2-IPDC-LEDS-dumps
 npm install -g @comunica/query-sparql-file
-for FILENAME in *; do comunica-sparql-file $FILENAME "CONSTRUCT { ?s ?p ?o . } where { ?s ?p ?o . }" >> 20240000000004-add-lpdc.ttl; done
+for FILENAME in *; do comunica-sparql-file $FILENAME "CONSTRUCT { ?s ?p ?o . } where { ?s ?p ?o . }" >> 20240000000005-add-ipdc.ttl; done
 ```
 
+Query:
+```
+select *
+where {
+  ?instance a <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#InstancePublicServiceSnapshot> ;
+      <http://data.europa.eu/m8g/thematicArea> <https://productencatalogus.data.vlaanderen.be/id/concept/Thema/Wielerwedstrijd>;
+      <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#hasExecutingAuthority> ?bestuurseenheid ;
+      <http://vocab.belgif.be/ns/publicservice#hasRequirement> ?voorwaarde .
+
+  ?voorwaarde <http://purl.org/dc/terms/description> ?voorwaardeBeschrijving .
+
+  FILTER (lang(?voorwaardeBeschrijving) = 'nl')
+} 
+```
 ## Form Content Service
 
 An important service that is used in this repository is the [form-content-service](https://github.com/lblod/form-content-service), during development some extra settings can be useful to prevent constantly needing to rebuild this docker image. Make sure to clone the repo in the same directory as where you clone this repo and add the following to you docker-compose.override.yml, then your form-content service will automatically be rebuild if changes are made in one of it's files.
