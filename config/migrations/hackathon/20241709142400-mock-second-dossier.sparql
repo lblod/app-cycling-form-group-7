@@ -1,0 +1,36 @@
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dossier: <http://data.vlaanderen.be/ns/dossier#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?zaak a dossier:Zaak ;
+      mu:uuid ?zaakUuid ;
+      dct:title ?zaakName ;
+      dossier:openingsdatum "2024-09-17T13:00"^^xsd:dateTime ;
+      ext:eventDate "2024-09-17"^^xsd:dateTime;
+      ext:closingDate "2024-09-17T20:00"^^xsd:dateTime ;
+      ext:organizer ?organization;
+      ext:location ?location1;
+      ext:location ?location2.
+    ?dossier a dossier:Dossier ;
+      mu:uuid ?uuid ;
+      dct:title ?dossierName ;
+      dossier:Dossier.isNeerslagVan ?zaak .
+    ?organization skos:prefLabel "Organizer.
+    ?location1 a geosparql:Feature;
+        skos:prefLabel "het Citadelpark";
+        ext:geometry "POLYGON((3.7168937735259537 51.03662243938447,3.718567304313183 51.037647059502746,3.7197848595678806 51.03666133741382,3.7188588269054894 51.035874515640955,3.7168937735259537 51.03662243938447))".
+    ?location1 a geosparql:Feature;
+        skos:prefLabel "omgeving in Gent";
+        ext:geometry "LINESTRING(3.7244438210622612 51.03874007628664,3.7204485534162512 51.034672704529555,3.719244678836533 51.029355633627205,3.7121200278422886 51.026144539610016,3.7091498567154004 51.021152279963815)".
+  }
+} WHERE {
+  BIND ("Cycling race passing through muncicipality" AS ?zaakName)
+  BIND (SHA256(?zaakName) AS ?zaakUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/zaken/", ?zaakUuid)) AS ?zaak)
+
+  BIND ("A cycling event" AS ?dossierName)
+  BIND (SHA256(?dossierName) AS ?dossierUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/dossiers/", ?dossierUuid)) AS ?dossier)
+}
