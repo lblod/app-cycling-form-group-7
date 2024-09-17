@@ -49,3 +49,7 @@ services:
     restart: "no"
   sink:
     restart: "no"
+  form-content:
+    restart: "no"
+    profiles:
+      - nodebug

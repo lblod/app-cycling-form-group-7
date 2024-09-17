@@ -130,6 +130,22 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://virtuoso:8890/sparql/"
   end
 
+  #################################################################
+  # Forms
+  #################################################################
+
+  match "/form-content/*path", %{layer: :api_services, accept: %{any: true}} do
+    forward(conn, path, "http://form-content/")
+  end
+
+  match "/forms/*path", %{layer: :resources, accept: %{json: true}} do
+    forward(conn, path, "http://cache/forms/")
+  end
+
+  match "/form-extensions/*path", %{layer: :resources, accept: %{json: true}} do
+    forward(conn, path, "http://cache/form-extensions/")
+  end
+
   #################
   # NOT FOUND
   #################

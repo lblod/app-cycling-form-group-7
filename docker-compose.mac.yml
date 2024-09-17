@@ -21,3 +21,5 @@ services:
     platform: linux/amd64
   cache:
     platform: linux/amd64
+  form-content:
+    platform: linux/amd64

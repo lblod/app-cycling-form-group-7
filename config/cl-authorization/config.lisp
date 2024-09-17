@@ -85,7 +85,10 @@
   ("foaf:OnlineAccount" -> _)
   ("adms:Identifier" -> _))
 
-(define-graph organization-mandatendatabank ("http://mu.semte.ch/graphs/organizations/"))
+(define-graph organization-mandatendatabank ("http://mu.semte.ch/graphs/organizations/")
+  ("ext:Form" -> _)
+  ("ext:Extension" -> _)
+)
 
 (supply-allowed-group "public")
 
