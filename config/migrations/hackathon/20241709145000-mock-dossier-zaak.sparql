@@ -1,0 +1,24 @@
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dossier: <http://data.vlaanderen.be/ns/dossier#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?zaak a dossier:Zaak ;
+      mu:uuid ?zaakUuid ;
+      dct:title ?zaakName ;
+      dossier:openingsdatum "2024-09-17T13:00"^^xsd:dateTime .
+    ?dossier a dossier:Dossier ;
+      mu:uuid ?uuid ;
+      dct:title ?dossierName ;
+      dossier:Dossier.isNeerslagVan ?zaak .
+  }
+} WHERE {
+  BIND ("Cycling race passing through muncicipality" AS ?zaakName)
+  BIND (SHA256(?zaakName) AS ?zaakUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/zaken/", ?zaakUuid)) AS ?zaak)
+
+  BIND ("A cycling event" AS ?dossierName)
+  BIND (SHA256(?dossierName) AS ?dossierUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/dossiers/", ?dossierUuid)) AS ?dossier)
+}
