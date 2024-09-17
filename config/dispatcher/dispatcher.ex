@@ -57,6 +57,14 @@ defmodule Dispatcher do
   end
 
   #################################################################
+  # Dossier resources
+  #################################################################
+
+  match "/dossiers/*path", %{layer: :resources, accept: %{json: true}} do
+    forward(conn, path, "http://resource/dossiers/")
+  end
+
+  #################################################################
   # Besluit resources
   #################################################################
   match "/bestuurseenheden/*path", %{layer: :resources, accept: %{json: true}} do

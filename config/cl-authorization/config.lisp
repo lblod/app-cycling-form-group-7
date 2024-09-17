@@ -59,6 +59,7 @@
   :skos "http://www.w3.org/2004/02/skos/core#"
   :extlmb "http://mu.semte.ch/vocabularies/ext/lmb/"
   :lmb "http://lblod.data.gift/vocabularies/lmb/"
+  :dossier "http://data.vlaanderen.be/ns/dossier#"
 )
 
 (define-graph public ("http://mu.semte.ch/graphs/public")
@@ -68,7 +69,8 @@
   ("skos:ConceptScheme" -> _)
   ("skos:Concept" -> _)
   ("m8g:PeriodOfTime" -> _)
-  ("foaf:Document" -> _))
+  ("foaf:Document" -> _)
+  ("dossier:Dossier" -> _))
 
 (define-graph sessions ("http://mu.semte.ch/graphs/sessions")
   ("musession:Session" -> _))
