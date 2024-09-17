@@ -16,16 +16,7 @@
              (werkingsgebied :via ,(s-prefix "ext:inProvincie")
                              :as "provincie")
              (bestuurseenheid-classificatie-code :via ,(s-prefix "besluit:classificatie")
-                                                 :as "classificatie")
-             (bestuurseenheid-contact :via ,(s-prefix "ext:contactVoor")
-                                          :inverse t
-                                          :as "contact"))
-  :has-many `((bestuursorgaan :via ,(s-prefix "besluit:bestuurt")
-                              :inverse t
-                              :as "bestuursorganen")
-              (bestuursorgaan :via ,(s-prefix "ext:origineleBestuurseenheid")
-                              :inverse t
-                              :as "fake-bestuursorganen"))
+                                                 :as "classificatie"))
   :resource-base (s-url "http://data.lblod.info/id/bestuurseenheden/")
   :features '(include-uri)
   :on-path "bestuurseenheden"
