@@ -108,6 +108,15 @@ defmodule Dispatcher do
   match "/sessions/*path", %{layer: :api_services, accept: %{any: true}} do
     Proxy.forward(conn, path, "http://login/sessions/")
   end
+  
+  #################################################################
+  # OPEN DATABASE (REMOVE BEFORE DEPLOYING TO PROD)
+  # We use this endpoint to bypass mu-auth in a regular application this would be done in a microservice
+  # Only exposing the data we actually need and with security in mind
+  #################################################################
+  match "/sparql/*path" do
+    Proxy.forward conn, path, "http://virtuoso:8890/sparql/"
+  end
 
   #################
   # NOT FOUND
