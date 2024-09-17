@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   identifier:
-    image: mu-identifier:mac
+    image: semtech/mu-identifier:feature-arm64-build
   dispatcher:
     platform: linux/amd64
   virtuoso:
