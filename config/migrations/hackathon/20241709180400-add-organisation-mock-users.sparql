@@ -1,0 +1,80 @@
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX mu:<http://mu.semte.ch/vocabularies/core/>
+PREFIX ext:<http://mu.semte.ch/vocabularies/ext/>
+PREFIX bestuurseenheidscode: <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/>
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/persoon/9ffb00ff-8907-4b6d-b8bc-84181f3fb4d5> a foaf:Person;
+            mu:uuid "9ffb00ff-8907-4b6d-b8bc-84181f3fb4d5";
+            foaf:firstName "Girardin";
+            foaf:familyName "Brewery";
+            foaf:member <http://data.lblod.info/id/bestuurseenheden/6adc5e4321b234c5e026c9b785435c791733fe13655cb3dad402af6b73534516>;
+            foaf:account <http://data.lblod.info/id/account/9556d7c7-aada-4cdb-93db-a79ff41ef5b0>.
+    <http://data.lblod.info/id/account/9556d7c7-aada-4cdb-93db-a79ff41ef5b0> a foaf:OnlineAccount;
+            mu:uuid "9556d7c7-aada-4cdb-93db-a79ff41ef5b0";
+            foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service-organizer>;
+            ext:sessionRole "CyclingOrg".
+  }
+  GRAPH <http://mu.semte.ch/graphs/organizations/6adc5e4321b234c5e026c9b785435c791733fe13655cb3dad402af6b73534516> {
+    <http://data.lblod.info/id/persoon/9ffb00ff-8907-4b6d-b8bc-84181f3fb4d5> a foaf:Person;
+            mu:uuid "9ffb00ff-8907-4b6d-b8bc-84181f3fb4d5";
+            foaf:firstName "Girardin";
+            foaf:familyName "Brewery";
+            foaf:member <http://data.lblod.info/id/bestuurseenheden/6adc5e4321b234c5e026c9b785435c791733fe13655cb3dad402af6b73534516>;
+            foaf:account <http://data.lblod.info/id/account/9556d7c7-aada-4cdb-93db-a79ff41ef5b0>.
+    <http://data.lblod.info/id/account/9556d7c7-aada-4cdb-93db-a79ff41ef5b0> a foaf:OnlineAccount;
+            mu:uuid "9556d7c7-aada-4cdb-93db-a79ff41ef5b0";
+            foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service-organizer>;
+            ext:sessionRole "CyclingOrg".
+  }
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/persoon/4431723b-5d26-46ce-8a05-4872bf8663f8> a foaf:Person;
+            mu:uuid "4431723b-5d26-46ce-8a05-4872bf8663f8";
+            foaf:firstName "DPG";
+            foaf:familyName "Media";
+            foaf:member <http://data.lblod.info/id/bestuurseenheden/6adc5e4321b234c5e026c9b785435c791733fe13655cb3dad402af6b73534516>;
+            foaf:account <http://data.lblod.info/id/account/8e0782b7-cb0b-4e00-a309-728dc920f237>.
+    <http://data.lblod.info/id/account/8e0782b7-cb0b-4e00-a309-728dc920f237> a foaf:OnlineAccount;
+            mu:uuid "8e0782b7-cb0b-4e00-a309-728dc920f237";
+            foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service-organizer>;
+            ext:sessionRole "CyclingOrg".
+  }
+  GRAPH <http://mu.semte.ch/graphs/organizations/6adc5e4321b234c5e026c9b785435c791733fe13655cb3dad402af6b73534516> {
+    <http://data.lblod.info/id/persoon/4431723b-5d26-46ce-8a05-4872bf8663f8> a foaf:Person;
+            mu:uuid "4431723b-5d26-46ce-8a05-4872bf8663f8";
+            foaf:firstName "DPG";
+            foaf:familyName "Media";
+            foaf:member <http://data.lblod.info/id/bestuurseenheden/6adc5e4321b234c5e026c9b785435c791733fe13655cb3dad402af6b73534516>;
+            foaf:account <http://data.lblod.info/id/account/8e0782b7-cb0b-4e00-a309-728dc920f237>.
+    <http://data.lblod.info/id/account/8e0782b7-cb0b-4e00-a309-728dc920f237> a foaf:OnlineAccount;
+            mu:uuid "8e0782b7-cb0b-4e00-a309-728dc920f237";
+            foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service-organizer>;
+            ext:sessionRole "CyclingOrg".
+  }
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/persoon/bf2bf957-9be7-4963-916a-5b8c84a92053> a foaf:Person;
+            mu:uuid "bf2bf957-9be7-4963-916a-5b8c84a92053";
+            foaf:firstName "Ideal";
+            foaf:familyName "Standard";
+            foaf:member <http://data.lblod.info/id/bestuurseenheden/6adc5e4321b234c5e026c9b785435c791733fe13655cb3dad402af6b73534516>;
+            foaf:account <http://data.lblod.info/id/account/bd2bb4e4-24ae-4c39-8ecc-25c41fec57a5>.
+    <http://data.lblod.info/id/account/bd2bb4e4-24ae-4c39-8ecc-25c41fec57a5> a foaf:OnlineAccount;
+            mu:uuid "bd2bb4e4-24ae-4c39-8ecc-25c41fec57a5";
+            foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service-organizer>;
+            ext:sessionRole "CyclingOrg".
+  }
+  GRAPH <http://mu.semte.ch/graphs/organizations/6adc5e4321b234c5e026c9b785435c791733fe13655cb3dad402af6b73534516> {
+    <http://data.lblod.info/id/persoon/bf2bf957-9be7-4963-916a-5b8c84a92053> a foaf:Person;
+            mu:uuid "bf2bf957-9be7-4963-916a-5b8c84a92053";
+            foaf:firstName "Ideal";
+            foaf:familyName "Standard";
+            foaf:member <http://data.lblod.info/id/bestuurseenheden/6adc5e4321b234c5e026c9b785435c791733fe13655cb3dad402af6b73534516>;
+            foaf:account <http://data.lblod.info/id/account/bd2bb4e4-24ae-4c39-8ecc-25c41fec57a5>.
+    <http://data.lblod.info/id/account/bd2bb4e4-24ae-4c39-8ecc-25c41fec57a5> a foaf:OnlineAccount;
+            mu:uuid "bd2bb4e4-24ae-4c39-8ecc-25c41fec57a5";
+            foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service-organizer>;
+            ext:sessionRole "CyclingOrg".
+  }
+}

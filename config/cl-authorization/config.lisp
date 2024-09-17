@@ -135,6 +135,20 @@
             FILTER( ?session_role = \"LoketLB-mandaatGebruiker\" )
           }")
 
+(supply-allowed-group "organization"
+  :parameters ("session_group" "session_role")
+  :query "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+          PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+          SELECT DISTINCT ?session_group ?session_role WHERE {
+            <SESSION_ID> ext:sessionGroup/mu:uuid ?session_group;
+                         ext:sessionRole ?session_role.
+            FILTER( ?session_role = \"CyclingOrg\" )
+          }")
+
 (grant (read write)
        :to-graph organization-mandatendatabank
        :for-allowed-group "mandaat-gebruiker")
+      
+(grant (read write)
+       :to-graph organization-mandatendatabank
+       :for-allowed-group "organization")
