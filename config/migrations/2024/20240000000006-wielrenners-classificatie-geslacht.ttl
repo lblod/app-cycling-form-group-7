@@ -1,0 +1,27 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns2: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ns3: <http://data.vlaanderen.be/id/conceptscheme/> .
+@prefix ns4: <http://data.vlaanderen.be/id/concept/WielrennersClassificatieGeslachtCode/> .
+
+<http://data.vlaanderen.be/id/concept/WielrennersClassificatieGeslachtCode/M>
+  rdf:type skos:Concept ;
+  skos:prefLabel "M" ;
+  skos:topConceptOf ns3:WielrennersCategorieGeslachtCode ;
+  skos:inScheme ns3:WielrennersCategorieGeslachtCode .
+
+<http://data.vlaanderen.be/id/concept/WielrennersClassificatieGeslachtCode/V>
+  rdf:type skos:Concept ;
+  skos:prefLabel "V" ;
+  skos:topConceptOf ns3:WielrennersCategorieGeslachtCode ;
+  skos:inScheme ns3:WielrennersCategorieGeslachtCode .
+
+<http://data.vlaanderen.be/id/concept/WielrennersClassificatieGeslachtCode/M/V>
+  rdf:type skos:Concept ;
+  skos:prefLabel "M/V" ;
+  skos:topConceptOf ns3:WielrennersClassificatieGeslachtCode ;
+  skos:inScheme ns3:WielrennersClassificatieGeslachtCode .
+
+<http://data.vlaanderen.be/id/conceptscheme/WielrennersClassificatieGeslachtCode>
+  rdf:type skos:ConceptScheme ;
+  skos:prefLabel "Wielrenners classificatie volgens geslacht" .

@@ -1,0 +1,27 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns2: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ns3: <http://data.vlaanderen.be/id/conceptscheme/> .
+@prefix ns4: <http://data.vlaanderen.be/id/concept/BestuursorgaanClassificatieCode/> .
+
+<http://data.vlaanderen.be/id/concept/WielrennersClassificatieCategorieCode/ElitesMetContract>
+  rdf:type skos:Concept ;
+  skos:prefLabel "Elites met contract" ;
+  skos:topConceptOf ns3:WielrennersClassificatieCategorieCode ;
+  skos:inScheme ns3:WielrennersClassificatieCategorieCode .
+
+<http://data.vlaanderen.be/id/concept/WielrennersClassificatieCategorieCode/ElitesZonderContract>
+  rdf:type skos:Concept ;
+  skos:prefLabel "Elites zonder contract" ;
+  skos:topConceptOf ns3:WielrennersClassificatieCategorieCode ;
+  skos:inScheme ns3:WielrennersClassificatieCategorieCode .
+
+<http://data.vlaanderen.be/id/concept/WielrennersClassificatieCategorieCode/Beloften(U23)>
+  rdf:type skos:Concept ;
+  skos:prefLabel "Beloften (U 23)" ;
+  skos:topConceptOf ns3:WielrennersClassificatieCategorieCode ;
+  skos:inScheme ns3:WielrennersClassificatieCategorieCode .
+
+<http://data.vlaanderen.be/id/conceptscheme/WielrennersClassificatieCategorieCode>
+  rdf:type skos:ConceptScheme ;
+  skos:prefLabel "Wielrenners categorie" .
