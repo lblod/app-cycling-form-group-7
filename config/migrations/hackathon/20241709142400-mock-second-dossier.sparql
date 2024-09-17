@@ -1,23 +1,42 @@
 PREFIX dct: <http://purl.org/dc/terms/>
-PREFIX dossier: <http://data.vlaanderen.be/ns/dossier#>
+PREFIX dossier: <https://data.vlaanderen.be/ns/dossier#>
 PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX omgeving: <https://data.vlaanderen.be/ns/omgeving#>
+PREFIX time: <http://www.w3.org/2006/time#>
 
 INSERT {
   GRAPH <http://mu.semte.ch/graphs/public> {
     ?zaak a dossier:Zaak ;
       mu:uuid ?zaakUuid ;
       dct:title ?zaakName ;
-      dossier:openingsdatum "2024-09-17T13:00"^^xsd:dateTime ;
-      ext:eventDate "2024-09-17"^^xsd:dateTime;
-      ext:closingDate "2024-09-17T20:00"^^xsd:dateTime ;
-      ext:organizer ?organization;
-      ext:location ?location1;
-      ext:location ?location2.
+      dossier:openingsdatum "2024-09-17T13:00"^^xsd:dateTime .
+
     ?dossier a dossier:Dossier ;
       mu:uuid ?uuid ;
       dct:title ?dossierName ;
-      dossier:Dossier.isNeerslagVan ?zaak .
-    ?organization skos:prefLabel "Organizer.
+      dossier:Dossier.isNeerslagVan ?zaak ;
+      omgeving:zaakhandeling ?aanvraag .
+    ?aanvraag a omgeving:Aanvraag ;
+      mu:uuid ?aanvraagUuid ;
+      dct:title ?aanvraagName ;
+      omgeving:inhoud ?recht .
+    ?recht a omgeving:Recht ;
+        mu:uuid ?rechtUuid ;
+        dct:title ?rechtName ;
+        omgeving:voorwerp ?activiteit .
+    ?activiteit a omgeving:Activiteit ;
+              mu:uuid ?activityUuid ;
+              dct:title ?activiteitName ;
+              omgeving:betrokkene ?organization ,;
+              omgeving:locatie ?location1 ;
+              omgeving:locatie ?location2 ;
+              omgeving:Activiteit.tijdsbestek ?tijdsbestek .
+    ?tijdsbestek a time:Interval ;
+        dct:title ?tijdsbestekName ;
+        time:hasBeginning "2024-09-17T00:00:00Z"^^xsd:dateTime
+        time:hasEnd "2024-09-18T00:00:00Z"^^xsd:dateTime .
+
+    ?organization skos:prefLabel "RIA vzw" .
     ?location1 a geosparql:Feature;
         skos:prefLabel "het Citadelpark";
         ext:geometry "POLYGON((3.7168937735259537 51.03662243938447,3.718567304313183 51.037647059502746,3.7197848595678806 51.03666133741382,3.7188588269054894 51.035874515640955,3.7168937735259537 51.03662243938447))".
@@ -33,4 +52,24 @@ INSERT {
   BIND ("A cycling event" AS ?dossierName)
   BIND (SHA256(?dossierName) AS ?dossierUuid)
   BIND (IRI(CONCAT("http://data.lblod.info/id/dossiers/", ?dossierUuid)) AS ?dossier)
+
+  BIND ("Cycling race passing through muncicipality" AS ?zaakName)
+  BIND (SHA256(?zaakName) AS ?zaakUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/zaken/", ?zaakUuid)) AS ?zaak)
+
+  BIND ("Request for Cycling race passing through muncicipality" AS ?aanvraagName)
+   BIND (SHA256(?aanvraagName) AS ?aanvraagUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/aanvragen/", ?aanvraagUuid)) AS ?zaak)
+
+  BIND ("Request for Cycling race passing through muncicipality" AS ?rechtName)
+   BIND (SHA256(?aanvraagName) AS ?rechtUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/aanvragen/", ?rechtUuid)) AS ?recht)
+
+  BIND ("Cycling race name" AS ?activiteitName)
+  BIND (SHA256(?activiteitName) AS ?activiteitUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/activiteiten/", ?activiteitUuid)) AS ?activiteit)
+
+  BIND ("Cycling race tijdsbestek" AS ?tijdsbestekName)
+  BIND (SHA256(?tijdsbestekName) AS ?tijdsbestekUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/activiteiten/", ?tijdsbestekUuid)) AS ?tijdsbestek)
 }
