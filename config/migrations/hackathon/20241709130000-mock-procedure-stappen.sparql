@@ -1,0 +1,19 @@
+PREFIX dossier: <https://data.vlaanderen.be/ns/dossier#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/procedurestap/b0f9eb90-8ef9-427a-a22e-3b0168e85912> a dossier:Procedurestap ;
+      mu:uuid "b0f9eb90-8ef9-427a-a22e-3b0168e85912" ;
+      skos:prefLabel "Open" .
+
+    <http://data.lblod.info/id/procedurestap/ef053f0c-221a-4764-b7ac-57947ecf8585> a dossier:Procedurestap ;
+      mu:uuid "ef053f0c-221a-4764-b7ac-57947ecf8585" ;
+      skos:prefLabel "In behandeling" .
+
+    <http://data.lblod.info/id/procedurestap/d9274bcd-9dbd-4ece-8642-9400499d5f69> a dossier:Procedurestap ;
+      mu:uuid "d9274bcd-9dbd-4ece-8642-9400499d5f69" ;
+      skos:prefLabel "Goedgekeurd" .
+  }
+}
