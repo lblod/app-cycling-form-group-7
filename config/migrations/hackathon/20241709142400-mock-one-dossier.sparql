@@ -1,0 +1,107 @@
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dossier: <https://data.vlaanderen.be/ns/dossier#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX omgeving: <https://data.vlaanderen.be/ns/omgeving#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX locn: <http://www.w3.org/ns/locn#>
+PREFIX org: <http://www.w3.org/ns/org#>
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+
+    ?wielerwedstrijd a omgeving:Activiteit ;
+              mu:uuid ?wielerwedstrijdUuid ;
+              dct:title ?wielerwedstrijdName ;
+              omgeving:betrokkene ?organization ;
+              omgeving:Activiteit.tijdsbestek ?tijdsbestek .
+
+    ?zaak a dossier:Zaak ;
+      mu:uuid ?zaakUuid ;
+      dct:title ?zaakName ;
+      dossier:openingsdatum "2024-09-18T13:00"^^xsd:dateTime ;
+      dossier:doorloopt <http://data.lblod.info/id/procedurestap/b0f9eb90-8ef9-427a-a22e-3b0168e85912> ; # Open
+      dct:isPartOf ?wielerwedstrijd ;
+      omgeving:Zaak.verantwoordelijke <http://data.lblod.info/id/bestuurseenheden/38dc63f50a4f7ea61ef741d8944a874a59ba84b69b9ff3e73f69680da2c6ef37> .
+
+    ?dossier a dossier:Dossier ;
+      mu:uuid ?dossierUuid ;
+      dct:title ?dossierName ;
+      dossier:Dossier.isNeerslagVan ?zaak ;
+      omgeving:zaakhandeling ?aanvraag .
+    ?aanvraag a omgeving:Aanvraag ;
+      mu:uuid ?aanvraagUuid ;
+      dct:title ?aanvraagName ;
+      omgeving:inhoud ?recht .
+    ?recht a omgeving:Recht ;
+        mu:uuid ?rechtUuid ;
+        dct:title ?rechtName ;
+        omgeving:voorwerp ?activiteit .
+    ?activiteit a omgeving:Activiteit ;
+              mu:uuid ?activiteitUuid ;
+              dct:title ?activiteitName ;
+              omgeving:betrokkene ?organization ;
+              omgeving:locatie ?location1 ;
+              omgeving:locatie ?location2 ;
+              omgeving:Activiteit.tijdsbestek ?tijdsbestek ;
+              dct:isPartOf ?wielerwedstrijd .
+    ?tijdsbestek a time:Interval ;
+        mu:uuid ?tijdsbestekUuid ;
+        dct:title ?tijdsbestekName ;
+        time:hasBeginning "2024-09-18T00:00:00Z"^^xsd:dateTime ;
+        time:hasEnd "2024-09-19T00:00:00Z"^^xsd:dateTime .
+
+    ?organization a org:Organization;
+      mu:uuid ?organizationUuid;
+      skos:prefLabel ?organizationName.
+
+    ?location1 a geosparql:Feature;
+        mu:uuid ?location1Uuid ;
+        skos:prefLabel ?location1Name;
+        locn:geometry "POLYGON((3.7168937735259537 51.03662243938447,3.718567304313183 51.037647059502746,3.7197848595678806 51.03666133741382,3.7188588269054894 51.035874515640955,3.7168937735259537 51.03662243938447))"^^<geosparql:wktLiteral>.
+    ?location2 a geosparql:Feature;
+        mu:uuid ?location2Uuid ;
+        skos:prefLabel ?location2Name;
+        locn:geometry "LINESTRING(3.7244438210622612 51.03874007628664,3.7204485534162512 51.034672704529555,3.719244678836533 51.029355633627205,3.7121200278422886 51.026144539610016,3.7091498567154004 51.021152279963815)"^^<geosparql:wktLiteral>.
+  }
+} WHERE {
+  BIND ("Ronde van Vlaanderen passing through" AS ?zaakName)
+  BIND (SHA256(?zaakName) AS ?zaakUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/zaken/", ?zaakUuid)) AS ?zaak)
+
+  BIND ("Ronde van Vlaanderen" AS ?dossierName)
+  BIND (SHA256(?dossierName) AS ?dossierUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/dossiers/", ?dossierUuid)) AS ?dossier)
+
+  BIND ("Request for Ronde van Vlaanderen passing through" AS ?aanvraagName)
+  BIND (SHA256(?aanvraagName) AS ?aanvraagUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/aanvragen/", ?aanvraagUuid)) AS ?aanvraag)
+
+  BIND ("Right for organizing a Ronde van Vlaanderen passing through" AS ?rechtName)
+   BIND (SHA256(?rechtName) AS ?rechtUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/aanvragen/", ?rechtUuid)) AS ?recht)
+
+  BIND ("Ronde van Vlaanderen" AS ?wielerwedstrijdName)
+  BIND (SHA256(?activiteitName) AS ?wielerwedstrijdUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/activiteiten/", ?wielerwedstrijdUuid)) AS ?wielerwedstrijd)
+
+  BIND ("Part of Ronde van Vlaanderen for one municipality" AS ?activiteitName)
+  BIND (SHA256(?activiteitName) AS ?activiteitUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/activiteiten/", ?activiteitUuid)) AS ?activiteit)
+
+  BIND ("Ronde van Vlaanderen tijdsbestek" AS ?tijdsbestekName)
+  BIND (SHA256(?tijdsbestekName) AS ?tijdsbestekUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/activiteiten/", ?tijdsbestekUuid)) AS ?tijdsbestek)
+
+  BIND ("Flanders cycling vzw" AS ?organizationName)
+  BIND (SHA256(?organizationName) AS ?organizationUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/organisaties/", ?organizationUuid)) AS ?organization)
+
+  BIND ("Main street" AS ?location1Name)
+  BIND (SHA256(?location1Name) AS ?location1Uuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/organisaties/", ?location1Uuid)) AS ?location1)
+
+  BIND ("Second street" AS ?location2Name)
+  BIND (SHA256(?location2Name) AS ?location2Uuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/organisaties/", ?location2Uuid)) AS ?location2)
+}
