@@ -82,3 +82,11 @@
                      :as "recht"))
   :resource-base (s-url "http://data.lblod.info/id/activiteiten/")
   :on-path "activiteiten")
+
+(define-resource tijdsbestek ()
+  :class (s-prefix "time:Interval")
+  :properties `((:name :string ,(s-prefix "dct:title")
+                (start-time :datetime ,(s-prefix "time:hasBeginning"))
+                (end-time :datetime ,(s-prefix "time:hasEnd"))
+  :resource-base (s-url "http://data.lblod.info/id/activiteiten/")
+  :on-path "tijdsbestekken")))
