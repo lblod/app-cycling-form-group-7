@@ -1,10 +1,30 @@
 (define-resource dossier ()
   :class (s-prefix "dossier:Dossier")
   :properties `((:name :string ,(s-prefix "dct:title")))
-              ;; TODO: add status
-              ;; TODO: add start and end date
+  :has-one `((zaak :via ,(s-prefix "dossier:Dossier.isNeerslagVan")
+                   :as "is-neerslag-van"))
+  :resource-base (s-url "http://data.lblod.info/id/dossiers/")
+  :on-path "dossiers")
+
+(define-resource zaak ()
+  :class (s-prefix "dossier:Zaak")
+  :properties `((:name :string ,(s-prefix "dct:title"))
+                (:opening-date :datetime ,(s-prefix "dossier:openingsdatum"))
+                (:closing-date :datetime ,(s-prefix "dossier:sluitingsdatum")))
+  ;; TODO: add status
   ;; TODO: link to municipality and organizer (via project)
   ;; :has-one `((bestuurseenheid :via ,(s-prefix "ext:organizedBy"))
   ;;                             :as "organizedBy")
-  :resource-base (s-url "http://data.lblod.info/id/dossiers/")
-  :on-path "dossiers")
+  :has-one `((dossier :via ,(s-prefix "dossier:Dossier.isNeerslagVan")
+                      :inverse t
+                      :as "dossier")
+              (procedurestap :via ,(s-prefix "dossier:doorloopt")
+                             :as "procedurestap"))
+  :resource-base (s-url "http://data.lblod.info/id/zaken/")
+  :on-path "zaaks")
+
+(define-resource procedurestap ()
+  :class (s-prefix "dossier:Procedurestap")
+  :properties `((:name :string ,(s-prefix "skos:prefLabel")))
+  :resource-base (s-url "http://data.lblod.info/id/procedurestap/")
+  :on-path "procedurestaps")

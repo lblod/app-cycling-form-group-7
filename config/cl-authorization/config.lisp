@@ -70,7 +70,9 @@
   ("skos:Concept" -> _)
   ("m8g:PeriodOfTime" -> _)
   ("foaf:Document" -> _)
-  ("dossier:Dossier" -> _))
+  ("dossier:Dossier" -> _)
+  ("dossier:Zaak" -> _)
+  ("dossier:Procedurestap" -> _))
 
 (define-graph sessions ("http://mu.semte.ch/graphs/sessions")
   ("musession:Session" -> _))
