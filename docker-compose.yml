@@ -9,6 +9,8 @@ x-logging: &default-logging
 services:
   identifier:
     image: semtech/mu-identifier:1.10.1
+    environment:
+      DEFAULT_ACCESS_CONTROL_ALLOW_ORIGIN_HEADER: "*"
     labels:
       - "logging=true"
     restart: always
@@ -120,10 +122,20 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  form-content:
-    image: lblod/form-content-service:0.0.7
-    restart: always
+
+  frontend-org:
+    image: lblod/frontend-cycling-form-organiser-group7:latest
     labels:
       - "logging=true"
-    volumes:
-      - ./config/form-content:/config
+    restart: always
+    logging: *default-logging
+    environment:
+      EMBER_AUTHENTICATION_ENABLED: "true"
+  frontend-adm:
+    image: lblod/frontend-cycling-form-group7:latest
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
+    environment:
+      EMBER_AUTHENTICATION_ENABLED: "true"

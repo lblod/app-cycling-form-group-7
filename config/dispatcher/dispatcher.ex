@@ -22,16 +22,30 @@ defmodule Dispatcher do
   ###############
 
   # self-service
-  match "/index.html", %{layer: :static} do
-    forward(conn, [], "http://frontend/index.html")
+  match "/index.html", %{ reverse_host: ["cycling-org" | _rest],layer: :static} do
+    forward(conn, [], "http://frontend-org/index.html")
   end
 
-  get "/assets/*path", %{layer: :static} do
-    forward(conn, path, "http://frontend/assets/")
+  get "/assets/*path", %{ reverse_host: ["cycling-org" | _rest],layer: :static} do
+    forward(conn, path, "http://frontend-org/assets/")
   end
 
-  get "/@appuniversum/*path", %{layer: :static} do
-    forward(conn, path, "http://frontend/@appuniversum/")
+  get "/@appuniversum/*path", %{ reverse_host: ["cycling-org" | _rest],layer: :static} do
+    forward(conn, path, "http://frontend-org/@appuniversum/")
+  end
+
+
+  # self-service
+  match "/index.html", %{ reverse_host: ["cycling-adm" | _rest],layer: :static} do
+    forward(conn, [], "http://frontend-adm/index.html")
+  end
+
+  get "/assets/*path", %{ reverse_host: ["cycling-adm" | _rest],layer: :static} do
+    forward(conn, path, "http://frontend-adm/assets/")
+  end
+
+  get "/@appuniversum/*path", %{ reverse_host: ["cycling-adm" | _rest],layer: :static} do
+    forward(conn, path, "http://frontend-adm/@appuniversum/")
   end
 
   #################
@@ -39,14 +53,16 @@ defmodule Dispatcher do
   #################
 
   # self-service
-  match "/*path", %{layer: :frontend_fallback, accept: %{html: true}} do
+  match "/*path", %{ reverse_host: ["cycling-org" | _rest], layer: :frontend_fallback, accept: %{html: true}} do
     # we don't forward the path, because the app should take care of this in the browser.
-    forward(conn, [], "http://frontend/index.html")
+    forward(conn, [], "http://frontend-org/index.html")
   end
 
-  # match "/favicon.ico", @any do
-  #   send_resp( conn, 404, "" )
-  # end
+  # self-service
+  match "/*path", %{ reverse_host: ["cycling-adm" | _rest], layer: :frontend_fallback, accept: %{html: true}} do
+    # we don't forward the path, because the app should take care of this in the browser.
+    forward(conn, [], "http://frontend-adm/index.html")
+  end
 
   ###############
   # RESOURCES
