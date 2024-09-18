@@ -20,7 +20,7 @@ INSERT {
       mu:uuid ?zaakUuid ;
       dct:title ?zaakName ;
       dossier:openingsdatum "2024-09-17T13:00"^^xsd:dateTime ;
-      dossier:doorloopt <http://data.lblod.info/id/procedurestap/b0f9eb90-8ef9-427a-a22e-3b0168e85912> . # Open
+      dossier:doorloopt <http://data.lblod.info/id/procedurestap/b0f9eb90-8ef9-427a-a22e-3b0168e85912> ; # Open
       dct:isPartOf ?wielerwedstrijd ;
       omgeving:Zaak.verantwoordelijke <http://data.lblod.info/id/bestuurseenheden/38dc63f50a4f7ea61ef741d8944a874a59ba84b69b9ff3e73f69680da2c6ef37> .
 
@@ -54,7 +54,7 @@ INSERT {
     ?organization a org:Organization;
       mu:uuid ?organizationUuid;
       skos:prefLabel ?organizationName.
-        
+
     ?location1 a geosparql:Feature;
         mu:uuid ?location1Uuid ;
         skos:prefLabel ?location1Name;
