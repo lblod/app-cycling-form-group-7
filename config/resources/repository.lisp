@@ -33,4 +33,4 @@
 (add-prefix "nao" "http://www.semanticdesktop.org/ontologies/2007/08/15/nao#")
 (add-prefix "lmb" "http://lblod.data.gift/vocabularies/lmb/")
 
-(add-prefix "dossier" "http://data.vlaanderen.be/ns/dossier#")
+(add-prefix "dossier" "https://data.vlaanderen.be/ns/dossier#")

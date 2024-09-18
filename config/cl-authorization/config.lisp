@@ -59,7 +59,7 @@
   :skos "http://www.w3.org/2004/02/skos/core#"
   :extlmb "http://mu.semte.ch/vocabularies/ext/lmb/"
   :lmb "http://lblod.data.gift/vocabularies/lmb/"
-  :dossier "http://data.vlaanderen.be/ns/dossier#"
+  :dossier "https://data.vlaanderen.be/ns/dossier#"
 )
 
 (define-graph public ("http://mu.semte.ch/graphs/public")
