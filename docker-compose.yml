@@ -139,11 +139,17 @@ services:
     logging: *default-logging
     environment:
       EMBER_AUTHENTICATION_ENABLED: "true"
-    volumes:
-      - ./config/form-content:/config
   cycling-race-form-generator-service-group-7:
       image: lblod/cycling-race-form-generator-service-group-7
       environment:
         MU_SPARQL_ENDPOINT: "http://virtuoso:8890/sparql"
       ports:
         - 9092:80
+
+  form-content:
+    image: lblod/form-content-service:0.0.7
+    restart: always
+    labels:
+      - "logging=true"
+    volumes:
+      - ./config/form-content:/config
