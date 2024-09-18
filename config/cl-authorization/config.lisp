@@ -60,6 +60,9 @@
   :extlmb "http://mu.semte.ch/vocabularies/ext/lmb/"
   :lmb "http://lblod.data.gift/vocabularies/lmb/"
   :dossier "https://data.vlaanderen.be/ns/dossier#"
+  :omgeving "https://data.vlaanderen.be/ns/omgeving#"
+  :time "http://www.w3.org/2006/time#"
+  :geosparql "http://www.opengis.net/ont/geosparql#"
 )
 
 (define-graph public ("http://mu.semte.ch/graphs/public")
@@ -72,7 +75,10 @@
   ("foaf:Document" -> _)
   ("dossier:Dossier" -> _)
   ("dossier:Zaak" -> _)
-  ("dossier:Procedurestap" -> _))
+  ("dossier:Procedurestap" -> _)
+  ("omgeving:Aanvraag" -> _)
+  ("omgeving:Activiteit" -> _)
+  ("time:Interval" -> _))
 
 (define-graph sessions ("http://mu.semte.ch/graphs/sessions")
   ("musession:Session" -> _))

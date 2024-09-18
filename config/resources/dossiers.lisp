@@ -2,7 +2,9 @@
   :class (s-prefix "dossier:Dossier")
   :properties `((:name :string ,(s-prefix "dct:title")))
   :has-one `((zaak :via ,(s-prefix "dossier:Dossier.isNeerslagVan")
-                   :as "is-neerslag-van"))
+                   :as "is-neerslag-van")
+             (aanvraag :via ,(s-prefix "omgeving:zaakhandeling")
+                       :as "aanvraag"))
   :resource-base (s-url "http://data.lblod.info/id/dossiers/")
   :on-path "dossiers")
 
@@ -28,3 +30,12 @@
   :properties `((:name :string ,(s-prefix "skos:prefLabel")))
   :resource-base (s-url "http://data.lblod.info/id/procedurestap/")
   :on-path "procedurestaps")
+
+(define-resource aanvraag ()
+  :class (s-prefix "omgeving:Aanvraag")
+  :properties `((:name :string ,(s-prefix "dct:title")))
+  :has-one `((dossier :via ,(s-prefix "omgeving:zaakhandeling")
+                      :inverse t
+                      :as dossier))
+  :resource-base (s-url "http://data.lblod.info/id/aanvragen/")
+  :on-path "aanvraags")
