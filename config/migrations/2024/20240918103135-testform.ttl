@@ -1,0 +1,6 @@
+@prefix ext: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+
+<http://data.lblod.info/id/lmb/forms/test> a ext:GeneratedForm ;
+	mu:uuid "test" ;
+	ext:ttlCode "test" .
