@@ -92,7 +92,7 @@
 
 (supply-allowed-group "public")
 
-(grant (read)
+(grant (read write)
        :to-graph public
        :for-allowed-group "public")
 
@@ -153,7 +153,7 @@
 (grant (read write)
        :to-graph organization-mandatendatabank
        :for-allowed-group "mandaat-gebruiker")
-      
+
 (grant (read write)
        :to-graph organization-mandatendatabank
        :for-allowed-group "organization")
