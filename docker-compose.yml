@@ -132,7 +132,7 @@ services:
     environment:
       EMBER_AUTHENTICATION_ENABLED: "true"
   frontend-adm:
-    image: lblod/frontend-cycling-form-group7:latest
+    image: lblod/frontend-cycling-form-group7:0.0.3
     labels:
       - "logging=true"
     restart: always
