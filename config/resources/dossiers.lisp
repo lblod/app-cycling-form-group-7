@@ -47,7 +47,9 @@
   :properties `((:name :string ,(s-prefix "dct:title")))
   :has-one `((aanvraag :via ,(s-prefix "omgeving:inhoud")
                        :inverse t
-                       :as "aanvraag"))
+                       :as "aanvraag")
+             (activiteit :via ,(s-prefix "omgeving:voorwerp")
+                         :as "activiteit"))
   :resource-base (s-url "http://data.lblod.info/id/aanvragen/")
   :on-path "rechts")
 
@@ -72,8 +74,11 @@
   :properties `((:name :string ,(s-prefix "dct:title"))
                 (:date :date ,(s-prefix "ext:datum")))
   :has-one `((persoon :via ,(s-prefix "omgeving:betrokkene")
-                   :as "organisator")
+                      :as "organisator")
               (tijdsbestek :via ,(s-prefix "omgeving:Activiteit.tijdsbestek")
-                   :as "tijdsbestek"))
+                           :as "tijdsbestek")
+              (recht :via ,(s-prefix "omgeving:voorwerp")
+                     :inverse t
+                     :as "recht"))
   :resource-base (s-url "http://data.lblod.info/id/activiteiten/")
   :on-path "activiteiten")
