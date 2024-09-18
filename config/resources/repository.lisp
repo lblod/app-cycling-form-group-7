@@ -33,7 +33,8 @@
 (add-prefix "nao" "http://www.semanticdesktop.org/ontologies/2007/08/15/nao#")
 (add-prefix "lmb" "http://lblod.data.gift/vocabularies/lmb/")
 
+
 (add-prefix "dossier" "https://data.vlaanderen.be/ns/dossier#")
-(add-prefix "omgeving" "https://data.vlaanderen.be/ns/omgeving#")
 (add-prefix "time" "http://www.w3.org/2006/time#")
 (add-prefix "geosparql" "http://www.opengis.net/ont/geosparql#")
+(add-prefix "omgeving" "https://data.vlaanderen.be/ns/omgevingsvergunning#")

@@ -100,6 +100,14 @@ defmodule Dispatcher do
     forward(conn, path, "http://resource/rechts/")
   end
 
+  match "/personen/*path", %{layer: :resources, accept: %{json: true}} do
+    forward(conn, path, "http://cache/personen/")
+  end
+
+  match "/activiteiten/*path", %{layer: :resources, accept: %{json: true}} do
+    forward(conn, path, "http://cache/activiteiten/")
+  end
+
   #################################################################
   # Besluit resources
   #################################################################
@@ -144,7 +152,7 @@ defmodule Dispatcher do
   match "/sessions/*path", %{layer: :api_services, accept: %{any: true}} do
     Proxy.forward(conn, path, "http://login/sessions/")
   end
-  
+
   #################################################################
   # OPEN DATABASE (REMOVE BEFORE DEPLOYING TO PROD)
   # We use this endpoint to bypass mu-auth in a regular application this would be done in a microservice

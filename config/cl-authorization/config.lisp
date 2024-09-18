@@ -60,9 +60,9 @@
   :extlmb "http://mu.semte.ch/vocabularies/ext/lmb/"
   :lmb "http://lblod.data.gift/vocabularies/lmb/"
   :dossier "https://data.vlaanderen.be/ns/dossier#"
-  :omgeving "https://data.vlaanderen.be/ns/omgeving#"
   :time "http://www.w3.org/2006/time#"
   :geosparql "http://www.opengis.net/ont/geosparql#"
+  :omgeving "https://data.vlaanderen.be/ns/omgevingsvergunning#"
 )
 
 (define-graph public ("http://mu.semte.ch/graphs/public")
@@ -71,6 +71,8 @@
   ("ext:BestuurseenheidClassificatieCode" -> _)
   ("skos:ConceptScheme" -> _)
   ("skos:Concept" -> _)
+  ("ext:Form" -> _)
+  ("ext:Extension" -> _)
   ("m8g:PeriodOfTime" -> _)
   ("foaf:Document" -> _)
   ("dossier:Dossier" -> _)
@@ -93,8 +95,8 @@
   ("adms:Identifier" -> _))
 
 (define-graph organization-mandatendatabank ("http://mu.semte.ch/graphs/organizations/")
-  ("ext:Form" -> _)
-  ("ext:Extension" -> _)
+  ("person:Person" -> _)
+  ("omgeving:Activiteit" -> _)
 )
 
 (supply-allowed-group "public")
