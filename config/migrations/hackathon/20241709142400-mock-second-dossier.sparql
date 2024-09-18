@@ -5,15 +5,24 @@ PREFIX omgeving: <https://data.vlaanderen.be/ns/omgeving#>
 PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
 PREFIX locn: <http://www.w3.org/ns/locn#>
-PREFIX org: <http://www.w3.org/ns/org>
+PREFIX org: <http://www.w3.org/ns/org#>
 
 INSERT {
   GRAPH <http://mu.semte.ch/graphs/public> {
+
+    ?wielerwedstrijd a omgeving:Activiteit ;
+              mu:uuid ?wielerwedstrijdUuid ;
+              dct:title ?wielerwedstrijdName ;
+              omgeving:betrokkene ?organization ;
+              omgeving:Activiteit.tijdsbestek ?tijdsbestek .
+
     ?zaak a dossier:Zaak ;
       mu:uuid ?zaakUuid ;
       dct:title ?zaakName ;
       dossier:openingsdatum "2024-09-17T13:00"^^xsd:dateTime ;
       dossier:doorloopt <http://data.lblod.info/id/procedurestap/b0f9eb90-8ef9-427a-a22e-3b0168e85912> . # Open
+      dct:isPartOf ?wielerwedstrijd ;
+      omgeving:Zaak.verantwoordelijke <http://data.lblod.info/id/bestuurseenheden/38dc63f50a4f7ea61ef741d8944a874a59ba84b69b9ff3e73f69680da2c6ef37> .
 
     ?dossier a dossier:Dossier ;
       mu:uuid ?dossierUuid ;
@@ -34,14 +43,16 @@ INSERT {
               omgeving:betrokkene ?organization ;
               omgeving:locatie ?location1 ;
               omgeving:locatie ?location2 ;
-              omgeving:Activiteit.tijdsbestek ?tijdsbestek .
+              omgeving:Activiteit.tijdsbestek ?tijdsbestek ;
+              dct:isPartOf ?wielerwedstrijd .
     ?tijdsbestek a time:Interval ;
         mu:uuid ?tijdsbestekUuid ;
         dct:title ?tijdsbestekName ;
         time:hasBeginning "2024-09-17T00:00:00Z"^^xsd:dateTime ;
         time:hasEnd "2024-09-18T00:00:00Z"^^xsd:dateTime .
 
-    ?organization mu:uuid ?organizationUuid;
+    ?organization a org:Organization;
+      mu:uuid ?organizationUuid;
       skos:prefLabel ?organizationName.
         
     ?location1 a geosparql:Feature;
@@ -70,7 +81,11 @@ INSERT {
    BIND (SHA256(?rechtName) AS ?rechtUuid)
   BIND (IRI(CONCAT("http://data.lblod.info/id/aanvragen/", ?rechtUuid)) AS ?recht)
 
-  BIND ("Cycling race name" AS ?activiteitName)
+  BIND ("Cycling race name" AS ?wielerwedstrijdName)
+  BIND (SHA256(?activiteitName) AS ?wielerwedstrijdUuid)
+  BIND (IRI(CONCAT("http://data.lblod.info/id/activiteiten/", ?wielerwedstrijdUuid)) AS ?wielerwedstrijd)
+
+  BIND ("Part of Cycling race name for one municipality" AS ?activiteitName)
   BIND (SHA256(?activiteitName) AS ?activiteitUuid)
   BIND (IRI(CONCAT("http://data.lblod.info/id/activiteiten/", ?activiteitUuid)) AS ?activiteit)
 
