@@ -5,6 +5,7 @@ PREFIX omgeving: <https://data.vlaanderen.be/ns/omgeving#>
 PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
 PREFIX locn: <http://www.w3.org/ns/locn#>
+PREFIX org: <http://www.w3.org/ns/org>
 
 INSERT {
   GRAPH <http://mu.semte.ch/graphs/public> {
@@ -28,19 +29,21 @@ INSERT {
         dct:title ?rechtName ;
         omgeving:voorwerp ?activiteit .
     ?activiteit a omgeving:Activiteit ;
-              mu:uuid ?activityUuid ;
+              mu:uuid ?activiteitUuid ;
               dct:title ?activiteitName ;
               omgeving:betrokkene ?organization ;
               omgeving:locatie ?location1 ;
               omgeving:locatie ?location2 ;
               omgeving:Activiteit.tijdsbestek ?tijdsbestek .
     ?tijdsbestek a time:Interval ;
+        mu:uuid ?tijdsbestekUuid ;
         dct:title ?tijdsbestekName ;
         time:hasBeginning "2024-09-17T00:00:00Z"^^xsd:dateTime ;
         time:hasEnd "2024-09-18T00:00:00Z"^^xsd:dateTime .
 
     ?organization mu:uuid ?organizationUuid;
       skos:prefLabel ?organizationName.
+        
     ?location1 a geosparql:Feature;
         skos:prefLabel ?location1Name;
         locn:geometry "POLYGON((3.7168937735259537 51.03662243938447,3.718567304313183 51.037647059502746,3.7197848595678806 51.03666133741382,3.7188588269054894 51.035874515640955,3.7168937735259537 51.03662243938447))"^^<geosparql:wktLiteral>.
