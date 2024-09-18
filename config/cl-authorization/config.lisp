@@ -77,6 +77,7 @@
   ("dossier:Zaak" -> _)
   ("dossier:Procedurestap" -> _)
   ("omgeving:Aanvraag" -> _)
+  ("omgeving:Recht" -> _)
   ("omgeving:Activiteit" -> _)
   ("time:Interval" -> _))
 

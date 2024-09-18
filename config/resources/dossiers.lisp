@@ -36,6 +36,17 @@
   :properties `((:name :string ,(s-prefix "dct:title")))
   :has-one `((dossier :via ,(s-prefix "omgeving:zaakhandeling")
                       :inverse t
-                      :as dossier))
+                      :as "dossier")
+             (recht :via ,(s-prefix "omgeving:inhoud")
+                    :as "recht"))
   :resource-base (s-url "http://data.lblod.info/id/aanvragen/")
   :on-path "aanvraags")
+
+(define-resource recht ()
+  :class (s-prefix "omgeving:Recht")
+  :properties `((:name :string ,(s-prefix "dct:title")))
+  :has-one `((aanvraag :via ,(s-prefix "omgeving:inhoud")
+                       :inverse t
+                       :as "aanvraag"))
+  :resource-base (s-url "http://data.lblod.info/id/aanvragen/")
+  :on-path "rechts")

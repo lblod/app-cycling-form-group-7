@@ -96,6 +96,10 @@ defmodule Dispatcher do
     forward(conn, path, "http://resource/aanvraags/")
   end
 
+  match "/rechts/*path", %{layer: :resources, accept: %{json: true}} do
+    forward(conn, path, "http://resource/rechts/")
+  end
+
   #################################################################
   # Besluit resources
   #################################################################
