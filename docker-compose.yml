@@ -123,33 +123,29 @@ services:
     restart: always
     logging: *default-logging
 
-  # frontend-org:
-  #   image: lblod/frontend-cycling-form-organiser-group7:latest
-  #   labels:
-  #     - "logging=true"
-  #   restart: always
-  #   logging: *default-logging
-  #   environment:
-  #     EMBER_AUTHENTICATION_ENABLED: "true"
-  # frontend-adm:
-  #   image: lblod/frontend-cycling-form-group7:latest
-  #   labels:
-  #     - "logging=true"
-  #   restart: always
-  #   logging: *default-logging
-  #   environment:
-  #     EMBER_AUTHENTICATION_ENABLED: "true"
-  cycling-race-form-generator-service-group-7-v2:
-      image: lblod/cycling-race-form-generator-service-group-7-v2
-      environment:
-        MU_SPARQL_ENDPOINT: "http://virtuoso:8890/sparql"
-      ports:
-        - 9092:80
+  frontend-org:
+    image: lblod/frontend-cycling-form-organiser-group7:latest
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
+    environment:
+      EMBER_AUTHENTICATION_ENABLED: "true"
+  frontend-adm:
+    image: lblod/frontend-cycling-form-group7:latest
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
+    environment:
+      EMBER_AUTHENTICATION_ENABLED: "true"
 
   form-content:
     image: lblod/form-content-service:0.0.7
     restart: always
     labels:
       - "logging=true"
-    volumes:
-      - ./config/form-content:/config
+  cycling-race-form-generator:
+    image: lblod/cycling-race-form-generator-service-group-7-v2:latest
+    restart: always
+    logging: *default-logging

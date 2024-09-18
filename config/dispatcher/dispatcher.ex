@@ -178,6 +178,15 @@ defmodule Dispatcher do
     forward(conn, path, "http://cache/form-extensions/")
   end
 
+  #################################################################
+  # Microservices
+  #################################################################
+
+  match "/form-generator/*path", %{layer: :api_services, accept: %{any: true}} do
+    forward(conn, path, "http://cycling-race-form-generator/")
+  end
+
+
   #################
   # NOT FOUND
   #################
